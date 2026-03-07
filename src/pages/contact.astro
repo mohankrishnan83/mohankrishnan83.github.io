@@ -1,58 +1,112 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
 const formAction = "https://formspree.io/f/mwvnyaqn";
 ---
 
-<h1>Contact</h1>
+<BaseLayout>
 
-<p>
-I am open to PostgreSQL architecture consulting engagements globally and 
-full-time Data & Cloud Architecture roles within India.
-</p>
+  <section class="max-w-4xl mx-auto px-6 py-20">
 
-<p>
-For consulting inquiries, architecture reviews, migration advisory, or 
-performance optimization discussions, please use the form below.
-</p>
+    <!-- Page Heading -->
+    <h1 class="text-4xl font-bold text-white mb-8">
+      Contact
+    </h1>
 
-<form action={formAction} method="POST">
-  <div>
-    <label>Name</label>
-    <input type="text" name="name" required />
-  </div>
+    <!-- Intro Text -->
+    <div class="space-y-4 text-gray-400 mb-12 leading-relaxed">
+      <p>
+        I am open to PostgreSQL architecture consulting engagements globally
+        and full-time Data & Cloud Architecture roles within India.
+      </p>
 
-  <div>
-    <label>Email</label>
-    <input type="email" name="email" required />
-  </div>
+      <p>
+        For consulting inquiries, architecture reviews, migration advisory,
+        or performance optimization discussions, please use the form below.
+      </p>
+    </div>
 
-  <div>
-    <label>Organization</label>
-    <input type="text" name="organization" />
-  </div>
+    <!-- Contact Form -->
+    <form action={formAction} method="POST" class="space-y-8">
 
-  <div>
-    <label>Project Details</label>
-    <textarea name="message" rows="6" required></textarea>
-  </div>
+      <div>
+        <label class="block text-sm text-gray-300 mb-2">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          required
+          maxlength="30"
+          class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-gray-500"
+        />
+      </div>
 
-  <button type="submit">Send Inquiry</button>
-</form>
+      <div>
+        <label class="block text-sm text-gray-300 mb-2">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          maxlength="30"
+          class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-gray-500"
+        />
+      </div>
 
-<hr />
+      <div>
+        <label class="block text-sm text-gray-300 mb-2">
+          Organization
+        </label>
+        <input
+          type="text"
+          name="organization"
+          maxlength="30"
+          class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-gray-500"
+        />
+      </div>
 
-<p>
-You may also connect with me on LinkedIn for professional networking:
-</p>
+      <div>
+        <label class="block text-sm text-gray-300 mb-2">
+          Project Details
+        </label>
+        <textarea
+          name="message"
+          rows="6"
+          required
+          class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-gray-200 focus:outline-none focus:border-gray-500"
+        ></textarea>
+      </div>
 
-<p>
-<a href="https://www.linkedin.com/in/mohanakrishnan-rajamani/" target="_blank">
-View LinkedIn Profile
-</a>
-</p>
+      <div>
+        <button
+          type="submit"
+          class="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-lg transition"
+        >
+          Send Inquiry
+        </button>
+      </div>
 
-<br />
+    </form>
 
-<p>
-<strong>Mohanakrishnan Rajamani</strong><br />
-Data & Cloud Architect | PostgreSQL Specialist
-</p>
+    <!-- Divider -->
+    <div class="border-t border-gray-800 my-16"></div>
+
+    <!-- LinkedIn -->
+    <div class="text-gray-400 space-y-3">
+      <p>
+        You may also connect with me on LinkedIn for professional networking:
+      </p>
+
+      <a
+        href="https://www.linkedin.com/in/mohanakrishnan-rajamani/"
+        target="_blank"
+        class="text-gray-300 hover:text-white transition underline"
+      >
+        View LinkedIn Profile
+      </a>
+    </div>
+
+  </section>
+
+</BaseLayout>

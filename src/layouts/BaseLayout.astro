@@ -1,16 +1,38 @@
 ---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
-const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>{title}</title>
+ <title><slot name="title" /></title>
   </head>
-  <body class="bg-gray-950 text-white font-sans">
-    <slot />
+
+  <body class="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
+
+    <Navbar />
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <div class="text-center text-xs text-gray-500 mt-10">
+  Page visits: <span id="visitor-count">...</span>
+</div>
+
+<script>
+  fetch("https://mohankrishnan83.goatcounter.com/counter//")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("visitor-count").innerText = data.count;
+    })
+    .catch(() => {
+      document.getElementById("visitor-count").innerText = "0";
+    });
+</script>
+
   </body>
 </html>

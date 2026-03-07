@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const caseStudies = await getCollection('case-studies');
+---
+
+<BaseLayout>
+
+<section class="max-w-5xl mx-auto px-6 py-20">
+
+  <h1 class="text-4xl font-bold text-white mb-12">
+    Case Studies
+  </h1>
+
+  <div class="space-y-10">
+    {caseStudies.map((study) => (
+      <div class="border border-gray-800 rounded-xl p-8 hover:border-gray-700 transition">
+        <h2 class="text-2xl font-semibold text-white mb-3">
+          <a href={`/case-studies/${study.slug}`} class="hover:underline">
+            {study.data.title}
+          </a>
+        </h2>
+
+        <p class="text-gray-400 mb-4">
+          {study.data.summary}
+        </p>
+
+        <div class="text-sm text-gray-500 space-y-1">
+          <p><strong>Industry:</strong> {study.data.industry}</p>
+          <p><strong>Role:</strong> {study.data.role}</p>
+          <p><strong>Scale:</strong> {study.data.scale}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</section>
+
+</BaseLayout>

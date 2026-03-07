@@ -2,12 +2,13 @@ import { defineCollection, z } from 'astro:content';
 
 const caseStudies = defineCollection({
   type: 'content',
-  schema: z.object({
+    schema: z.object({
     title: z.string(),
-    description: z.string(),
-    category: z.string(),
-    date: z.date(),
-    draft: z.boolean().optional(),
+    industry: z.string(),
+    role: z.string(),
+    scale: z.string(),
+    summary: z.string(),
+    featured: z.boolean().optional(),
   }),
 });
 
