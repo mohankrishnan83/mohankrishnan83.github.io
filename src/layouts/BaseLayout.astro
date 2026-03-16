@@ -6,33 +6,57 @@ import '../styles/global.css';
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
- <title><slot name="title" /></title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
 
-  <body class="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
+  <!-- GoatCounter tracking (this records visits) -->
+  <script
+    data-goatcounter="https://mohankrishnan83.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js">
+  </script>
 
-    <Navbar />
+  <title><slot name="title" /></title>
 
-    <main class="flex-grow">
-      <slot />
-    </main>
-    <div class="text-center text-xs text-gray-500 mt-10">
-  Page visits: <span id="visitor-count">...</span>
-</div>
+  <meta name="description" content="Data Engineering, PostgreSQL, and Cloud Architecture articles by Mohanakrishnan." />
 
-<script>
-  fetch("https://mohankrishnan83.goatcounter.com/counter//")
-    .then(res => res.json())
-    .then(data => {
-      document.getElementById("visitor-count").innerText = data.count;
-    })
-    .catch(() => {
-      document.getElementById("visitor-count").innerText = "0";
+</head>
+
+<body class="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
+
+  <Navbar />
+
+  <main class="flex-grow">
+    <slot />
+  </main>
+
+  <!-- Page visit counter -->
+  <div class="text-center text-xs text-gray-500 mt-10 mb-6">
+    Page visits: <span id="visitor-count">...</span>
+  </div>
+
+  <Footer />
+
+  <!-- Fetch correct page count -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const path = window.location.pathname;
+
+      fetch(`https://mohankrishnan83.goatcounter.com/counter/${path}.json`)
+        .then(res => res.json())
+        .then(data => {
+          const el = document.getElementById("visitor-count");
+          if (el) el.innerText = data.count || 0;
+        })
+        .catch(() => {
+          const el = document.getElementById("visitor-count");
+          if (el) el.innerText = "0";
+        });
+
     });
-</script>
+  </script>
 
-  </body>
+</body>
 </html>
