@@ -1,8 +1,12 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@tailwindcss/vite';
+import tailwind from '@astrojs/tailwind';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  vite: {
-    plugins: [tailwind()]
-  }
+  site: 'https://mohankrishnan83-github-io.vercel.app',
+
+  integrations: [
+    tailwind(),
+    sitemap()
+  ]
 });
