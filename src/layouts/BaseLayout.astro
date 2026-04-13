@@ -5,31 +5,80 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Mohanakrishnan Rajamani is a PostgreSQL Architect and Data & Cloud Specialist with 20+ years of experience in database modernization, high availability, and cloud data platforms." />
-    <meta name="keywords" content="PostgreSQL Architect, Data Architect India, Cloud Data Engineer, Database Migration, Oracle to PostgreSQL" />
-    <link rel="canonical" href={`https://mohankrishnan83-github-io.vercel.app${Astro.url.pathname}`} />
- <title><slot name="title" />| Mohanakrishnan Rajamani - Cloud Data Architect </title>
-  </head>
-
-<head>
+ <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- GoatCounter tracking (this records visits) -->
+  <!-- Primary SEO -->
+  <title>
+    <slot name="title" /> | Mohanakrishnan Rajamani - Senior Principal Data Architect
+  </title>
+
+  <meta name="description" content="Senior Principal Data Architect with 20+ years of experience in Data Modeling, PostgreSQL, Cloud Architecture, and Big Data platforms across Telecom and Enterprise domains." />
+
+  <meta name="keywords" content="
+    Senior Data Architect,
+    Principal Data Architect,
+    Data Architect Chennai,
+    PostgreSQL Architect,
+    Cloud Data Architect,
+    Azure Data Architect,
+    AWS Data Architect,
+    Kafka Architect,
+    PySpark Architect,
+    Data Modeling Expert,
+    Enterprise Data Architect India
+  " />
+
+  <meta name="author" content="Mohanakrishnan Rajamani" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={`https://mohankrishnan83-github-io.vercel.app${Astro.url.pathname}`} />
+
+  <!-- Open Graph (LinkedIn / WhatsApp) -->
+  <meta property="og:title" content="Mohanakrishnan Rajamani - Senior Principal Data Architect" />
+  <meta property="og:description" content="20+ years of expertise in Data Architecture, PostgreSQL, Cloud Platforms, and Big Data." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={`https://mohankrishnan83-github-io.vercel.app${Astro.url.pathname}`} />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Senior Principal Data Architect Portfolio" />
+  <meta name="twitter:description" content="Cloud, Data Modeling, PostgreSQL, and Big Data expertise." />
+
+  <!-- Structured Data (VERY IMPORTANT) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohanakrishnan Rajamani",
+    "jobTitle": "Senior Principal Data Architect",
+    "description": "20+ years experience in Data Architecture, PostgreSQL, Cloud and Big Data platforms",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Chennai",
+      "addressCountry": "India"
+    },
+    "skills": [
+      "Data Architecture",
+      "PostgreSQL",
+      "Azure",
+      "AWS",
+      "Kafka",
+      "PySpark",
+      "Data Modeling"
+    ]
+  }
+  </script>
+
+  <!-- GoatCounter tracking -->
   <script
     data-goatcounter="https://mohankrishnan83.goatcounter.com/count"
     async
     src="//gc.zgo.at/count.js">
   </script>
-
-  <title><slot name="title" /></title>
-
-  <meta name="description" content="Data Engineering, PostgreSQL, and Cloud Architecture articles by Mohanakrishnan." />
-
 </head>
+
 
 <body class="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
 
